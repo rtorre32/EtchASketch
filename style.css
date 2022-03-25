@@ -40,3 +40,9 @@ body{
     cursor: pointer;
 }
 
+.clear{
+    background: hotpink;
+    width: 100px;
+    height: 50px;
+}
+
