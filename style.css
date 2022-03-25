@@ -19,7 +19,6 @@ body{
     height: 500px;
     border: 1px solid black;
     box-shadow: 10px 10px 10px black;
-    
 }
 
 .controls{
@@ -28,6 +27,12 @@ body{
     width: 500px;
     height: 60px;
     border: 1px solid blue;
+    gap: 20px;
+}
+
+.sliderHolder{
+    display: flex;
+    align-items: center;
 }
 
 .controls .slider:hover{
