@@ -8,11 +8,14 @@ const slider = document.querySelector(".slider");
 const sliderOutput = document.querySelector("output");
 const resetButton = document.querySelector(".reset");
 const clearButton = document.querySelector("button.clear");
+const rainbowButton = document.querySelector("button.rainbow");
+const blackButton = document.querySelector("button.black");
 
 //------------Variables----------------------
 let cellColor = colorBlack;
 let total = slider.value;
 let size;
+let random = 0; 
 
 //---------------button handler---------------------
 resetButton.addEventListener("click", () => {
@@ -22,6 +25,14 @@ resetButton.addEventListener("click", () => {
 
 clearButton.addEventListener("click", () => {
     clearGrid();
+})
+
+rainbowButton.addEventListener("click", () => {
+    random = 1;
+})
+
+blackButton.addEventListener("click", () => {
+    random = 0;
 })
 
 
@@ -49,6 +60,26 @@ function deleteGrid(){
     cells.forEach(cell => canvas.removeChild(cell));
 }
 
+function getColor(random){
+    if(!random){
+        return colorBlack;
+    }
+    else{
+        return randomColor();
+    }
+}
+
+function randomColor(){
+    return "rgb("+randomInt()+", "+randomInt()+", "+randomInt()+")";
+}
+
+function randomInt(){
+    const min = 0;
+    const max = 255;
+    let value = min + Math.floor(Math.random() * (max - min + 1));
+    return value;
+}
+
 
 function createGrid(){
 
@@ -64,7 +95,7 @@ function createGrid(){
         pixel.style.height = ""+size+"px";
     
         pixel.addEventListener("mouseenter", function(){
-            pixel.style.background = cellColor;
+            pixel.style.background = getColor(random);
         })
         canvas.append(pixel);
     }
