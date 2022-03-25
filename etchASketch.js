@@ -8,7 +8,10 @@ const sliderOutput = document.querySelector("output");
 
 let total = slider.value;
 let size = canvas.clientWidth / total;
-console.log(size);
+
+
+
+
 
 //Slider Input Handling
 sliderOutput.innerHTML = slider.value;
@@ -30,8 +33,8 @@ for(let i = 0; i <total * total; i++){
     pixel.style.width = ""+size+"px";
     pixel.style.height = ""+size+"px";
 
-    // pixel.addEventListener("mouseenter" = () =>{
-    //     // pixel.background = "black";
-    // })
+    pixel.addEventListener("mouseenter", function(){
+        pixel.style.background = "black";
+    })
     canvas.append(pixel);
 }
