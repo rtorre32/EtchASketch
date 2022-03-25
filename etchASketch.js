@@ -10,6 +10,15 @@ const resetButton = document.querySelector(".reset");
 const clearButton = document.querySelector("button.clear");
 const rainbowButton = document.querySelector("button.rainbow");
 const blackButton = document.querySelector("button.black");
+const canvasSize = "500px";
+
+//----------Create Canvas---------------------
+canvas.style.width = canvasSize;
+canvas.style.height = canvasSize;
+canvas.style.background = canvasColor;
+
+
+
 
 //------------Variables----------------------
 let cellColor = colorBlack;
@@ -34,9 +43,6 @@ rainbowButton.addEventListener("click", () => {
 blackButton.addEventListener("click", () => {
     random = 0;
 })
-
-
-canvas.style.background = canvasColor;
 
 
 //----------Slider Input Handling-----------------
