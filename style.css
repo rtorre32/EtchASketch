@@ -22,7 +22,15 @@ body{
 }
 
 .controls{
+    display: flex;
+    align-items: center;
     width: 500px;
     height: 60px;
     border: 1px solid blue;
 }
+
+.controls .slider:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
