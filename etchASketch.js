@@ -1,4 +1,4 @@
-
+//------Constant Variables--------------------------
 const canvasColor = "#FFFAFA";
 const colorBlack = "#000000";
 const canvas = document.querySelector(".canvas");
@@ -7,27 +7,38 @@ const area = (canvas.clientHeight * canvas.clientWidth);
 const slider = document.querySelector(".slider");
 const sliderOutput = document.querySelector("output");
 const resetButton = document.querySelector(".reset");
+const clearButton = document.querySelector("button.clear");
 
+//------------Variables----------------------
 let cellColor = colorBlack;
 let total = slider.value;
-// let size = canvas.clientWidth / total;
 let size;
 
-//button handler
+//---------------button handler---------------------
 resetButton.addEventListener("click", () => {
     deleteGrid();
     createGrid();
 })
 
-//Slider Input Handling
+clearButton.addEventListener("click", () => {
+    clearGrid();
+})
+
+
+canvas.style.background = canvasColor;
+
+
+//----------Slider Input Handling-----------------
 sliderOutput.innerHTML = slider.value;
 slider.addEventListener("input", function(){
     sliderOutput.innerHTML = slider.value;
     total = slider.value;
 })
 
-canvas.style.background = canvasColor;
 
+
+
+//----------Functions----------------------------------------
 function clearGrid(){
     const cells = document.querySelectorAll("div.cell");
     cells.forEach(cell => cell.style.background = canvasColor);
@@ -39,21 +50,16 @@ function deleteGrid(){
 }
 
 
-
-
 function createGrid(){
 
     size = canvas.clientHeight / total;
-
-    console.log("total: " + total);
-    console.log("size: " + size);
 
     for(let i = 0; i <total * total; i++){
         let pixel = document.createElement("div");
         pixel.setAttribute("class", "cell");
         pixel.style.flex = "auto";
         pixel.style.boxSizing = "border-box";
-        pixel.style.border = "1px solid black";
+        // pixel.style.border = "1px solid black";
         pixel.style.width = ""+size+"px";
         pixel.style.height = ""+size+"px";
     
