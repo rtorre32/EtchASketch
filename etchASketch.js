@@ -96,7 +96,7 @@ function createGrid(){
         pixel.setAttribute("class", "cell");
         pixel.style.flex = "auto";
         pixel.style.boxSizing = "border-box";
-        // pixel.style.border = "1px solid black";
+        pixel.style.border = "1px solid black";
         pixel.style.width = ""+size+"px";
         pixel.style.height = ""+size+"px";
     
